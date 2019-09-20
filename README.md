@@ -54,6 +54,13 @@ according to the traffic rules defined in the configuration file.
 node index.js
 ```
 
+You can also specify a different configuration in a different file. Running the 
+command on the different configuration file will create a corresponding 
+directory in the `output` directory.
+```bash
+node index.js <configuration file>
+```
+ 
 ## Config Schema
 
 config_schema: 

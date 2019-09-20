@@ -1,13 +1,13 @@
 {
   "name": "terraform-aws-security-group-rules-module-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Node Terraform AWS Security Group Rules Module Generator is a utility script to generate a parameterized Terraform Module containing Security Group Rules from a supplied configuration YAML file.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Samuel Loh Yin Kang <samuel.loh.yk@gmail.com> (https://github.com/samloh84)",
+  "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^16.0.0",
     "bluebird": "^3.5.5",
@@ -16,10 +16,5 @@
     "lodash": "^4.17.15",
     "nunjucks": "^3.2.0",
     "yaml": "^1.6.0"
-  },
-  "devDependencies": {
-    "@adobe/jsonschema2md": "^3.3.1",
-    "joi-to-json-schema": "^5.1.0",
-    "joi-to-openapi-definition": "0.0.3"
   }
 }
