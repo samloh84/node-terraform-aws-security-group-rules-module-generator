@@ -1,0 +1,25 @@
+{
+  "name": "terraform-aws-security-group-rules-module-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^16.0.0",
+    "bluebird": "^3.5.5",
+    "commander": "^3.0.1",
+    "glob": "^7.1.4",
+    "lodash": "^4.17.15",
+    "nunjucks": "^3.2.0",
+    "yaml": "^1.6.0"
+  },
+  "devDependencies": {
+    "@adobe/jsonschema2md": "^3.3.1",
+    "joi-to-json-schema": "^5.1.0",
+    "joi-to-openapi-definition": "0.0.3"
+  }
+}

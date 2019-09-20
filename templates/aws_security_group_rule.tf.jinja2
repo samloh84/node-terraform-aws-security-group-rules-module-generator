@@ -1,0 +1,18 @@
+# https://www.terraform.io/docs/providers/aws/r/security_group_rule.html
+resource "aws_security_group_rule" "{{ traffic_rule_name }}" {
+    type = "{{ traffic_rule_type }}"
+    from_port = {{ from_port }}
+    to_port = {{ to_port }}
+    protocol = "{{ protocol }}"
+
+    {% if other_network_tier.type == 'cidr_block' -%}
+    cidr_blocks = var.cidr_blocks_{{ other_network_tier.name }}
+    {% elif other_network_tier.type == 'prefix_list' -%}
+    prefix_list_ids = var.prefix_list_{{ other_network_tier.name }}
+    {% elif other_network_tier.type == 'ipv6_cidr_block' -%}
+    ipv6_cidr_blocks = var.ipv6_cidr_blocks_{{ other_network_tier.name }}
+    {% elif other_network_tier.type == 'security_group' -%}
+    source_security_group_id = var.security_group_{{ other_network_tier.name }}_id
+    {%- endif %}
+    security_group_id = var.security_group_{{ network_tier.name }}_id
+}

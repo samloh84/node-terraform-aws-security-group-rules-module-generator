@@ -1,0 +1,39 @@
+{% if type == 'security_group' %}
+variable "security_group_{{ network_tier_name }}_id" {
+    type = string
+    description = "{{ network_tier_name }} Security Group Id"
+    {% if security_group_id -%}
+    default = {{ security_group_id }}
+    {%- endif %}
+}
+{% elif type == 'cidr_block' %}
+variable "cidr_blocks_{{ network_tier_name }}" {
+    type = list(string)
+    description = "{{ network_tier_name }} CIDR Blocks"
+    {% if cidr_blocks -%}
+    default = [
+    "{{ cidr_blocks | join('",\n"') }}"
+    ]
+    {%- endif %}
+}
+{% elif type == 'ipv6_cidr_block' %}
+variable "ipv6_cidr_blocks_{{ network_tier_name }}" {
+    type = list(string)
+    description = "{{ network_tier_name }} IPV6 CIDR Blocks"
+    {% if ipv6_cidr_blocks -%}
+    default = [
+    "{{ ipv6_cidr_blocks | join('",\n"') }}"
+    ]
+    {%- endif %}
+}
+{% elif type == 'prefix_list' %}
+variable "prefix_list_{{ network_tier_name }}" {
+    type = list(string)
+    description = "{{ network_tier_name }} Prefix List Ids"
+    {% if prefix_list_ids -%}
+    default = [
+    "{{ prefix_list_ids | join('",\n"') }}"
+    ]
+    {%- endif %}
+}
+{%- endif %}
